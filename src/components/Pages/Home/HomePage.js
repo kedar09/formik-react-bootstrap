@@ -23,7 +23,7 @@ class HomePage extends React.Component {
             userList: [],
             alertStatusAdd: false,
             alertStatusDelete: false,
-            alertStatusUpdate: false        
+            alertStatusUpdate: false
         };
     }
 
@@ -86,7 +86,7 @@ class HomePage extends React.Component {
                 this.componentDidMount();
             });
     }
-    
+
     DataTable() {
         return this.state.userList.map((res, index) => {
             const {userInfoId, name, address, dateOfBirth, mobileNumber} = res;
@@ -110,6 +110,10 @@ class HomePage extends React.Component {
         });
     }
 
+    goToPrivacyPage = () => {
+        this.props.history.push("/privacy-page");
+    }
+
     componentDidMount() {
         axios.get(baseUrl + 'users/getAllUser')
             .then(res => {
@@ -123,11 +127,11 @@ class HomePage extends React.Component {
         return (
             <div className="divPage">
                 <Card>
-                    {this.state.alertStatusInsert === true ? 
+                    {this.state.alertStatusInsert === true ?
                         <Alert variant="success">
                             <p>User Added Successfully</p>
                         </Alert> : null}
-                    {this.state.alertStatusUpdate === true ? 
+                    {this.state.alertStatusUpdate === true ?
                         <Alert variant="success">
                             <p>User Updated Successfully</p>
                         </Alert> : null}
@@ -135,8 +139,10 @@ class HomePage extends React.Component {
                         <Alert variant="success">
                             <p>User Deleted Successfully</p>
                         </Alert> : null}
-                                    
-                    <Card.Header className="text-center">React-Formik-React_Bootstrap-NodeJs-Mysql</Card.Header>
+
+                    <Card.Header className="text-center">
+                        React-Formik-React_Bootstrap-NodeJs-Mysql
+                    </Card.Header>
                         <Formik
                             enableReinitialize={true}
                             initialValues={this.state}
@@ -250,6 +256,9 @@ class HomePage extends React.Component {
                                     </Button>
                                     <Button variant="primary" onClick={this.updateUser} className="updateButton">
                                         Update User
+                                    </Button>
+                                    <Button variant="primary" className="updateButton" onClick={this.goToPrivacyPage}>
+                                        Click here to privacy page
                                     </Button>
                                 </Form>
                             )}
