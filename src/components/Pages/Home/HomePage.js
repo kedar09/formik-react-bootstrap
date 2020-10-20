@@ -4,12 +4,17 @@ import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {Form, Card, Col, Table, Row, Alert, Button} from 'react-bootstrap';
 import "./home-page.css";
-import axios from 'axios';
 
 import {FaEdit} from "react-icons/fa";
 import {IoMdTrash} from "react-icons/io";
 
+// import {HomePageService} from './HomePage.services';
+
+import axios from 'axios';
+import {getAllUser, addUser} from './HomePage.services';
+
 const baseUrl = "http://localhost:3001/";
+
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -115,10 +120,10 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(baseUrl + 'users/getAllUser')
+        getAllUser()
             .then(res => {
                 console.log(res);
-                const userList = res.data;
+                const userList = res;
                 this.setState({userList});
             });
     }
@@ -169,17 +174,17 @@ class HomePage extends React.Component {
                                     dateOfBirth: values.dateOfBirth,
                                     mobileNumber: values.mobileNumber
                                 }
-                                axios.post(baseUrl + 'users/addUser', userData)
-                                    .then(res => {
-                                        this.setState({alertStatusInsert: true}, () => {
-                                            window.setTimeout(() => {
-                                                this.setState({alertStatusInsert: false})
-                                            }, 3000)
-                                        });
 
-                                        this.referhState();
+                                addUser(userData)
+                                .then(res => {
+                                    this.setState({alertStatusInsert: true}, () => {
+                                        window.setTimeout(() => {
+                                            this.setState({alertStatusInsert: false})
+                                        }, 3000)
                                     });
-                                console.log(values);
+
+                                    this.referhState();
+                                });
                             }}
                         >
                             {props => (
