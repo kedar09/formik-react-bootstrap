@@ -4,10 +4,12 @@ import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {Form, Card, Col, Table, Row, Alert, Button} from 'react-bootstrap';
 import "./home-page.css";
-import axios from 'axios';
 
 import {FaEdit} from "react-icons/fa";
 import {IoMdTrash} from "react-icons/io";
+
+import axios from 'axios';
+import { getAllUser } from './HomePage.services';
 
 const baseUrl = "http://localhost:3001/";
 
@@ -111,10 +113,10 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(baseUrl + 'users/getAllUser')
+        getAllUser()
             .then(res => {
                 console.log(res);
-                const userList = res.data;
+                const userList = res;
                 this.setState({userList});
             });
     }
