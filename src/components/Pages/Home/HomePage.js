@@ -48,7 +48,7 @@ class HomePage extends React.Component {
         });
     }
 
-    referhState () {
+    refreshState () {
         this.setState({
             name: '',
             address: '',
@@ -70,7 +70,8 @@ class HomePage extends React.Component {
         axios.put(baseUrl + 'users/updateUser', userData)
             .then(res => {
                 console.log(res.data);
-                this.referhState();
+                this.
+		();
                 this.setState({alertStatusUpdate: true}, () => {
                     window.setTimeout(() => {
                         this.setState({alertStatusUpdate: false})
@@ -183,7 +184,7 @@ class HomePage extends React.Component {
                                         }, 3000)
                                     });
 
-                                    this.referhState();
+                                    this.refrehState();
                                 });
                             }}
                         >
