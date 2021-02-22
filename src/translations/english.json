@@ -1,0 +1,20 @@
+{
+    "userPage": {
+        "userFormCardTitle": "React-Formik-React-Bootstrap-NodeJs-Mysql",
+        "nameLabel": "Name",
+        "namePlaceholder": "Enter Name",
+        "addressLabel": "Address",
+        "addressPlaceholder": "Enter Address",
+        "dateLabel": "Date Of Birth",
+        "mobileNoLabel": "Mobile Number",
+        "mobileNoPlaceholder": "Enter Mobile Number",
+        "passwordLabel": "Password",
+        "addUserButton": "Add User",
+        "updateUserButton": "Update User",
+        "cancelButton": "Cancel"
+        
+    },
+    "userList": {
+        "userListCardTitle": "User Details"
+    }
+}
