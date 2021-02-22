@@ -4,19 +4,19 @@ import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Form, Card, Col, Row, Button } from "react-bootstrap";
-import "./home-page.css";
+import "./user-page.css";
 
 import {
   getAllUserService,
   addUserService,
   deleteUserService,
   updateUserService,
-} from "../../services/Home-Page/homepage.service";
+} from "../../services/User-Page/userpage.service";
 import swal from "sweetalert";
 import UserList from "../../components/User-List/UserList";
 import { useTranslation } from "react-i18next";
 
-const HomePage = () => {
+const UserPage = () => {
   const [state, setState] = useState({
     userInfoId: "",
     name: "",
@@ -283,4 +283,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default UserPage;
