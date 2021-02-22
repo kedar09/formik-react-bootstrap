@@ -1,0 +1,14 @@
+{
+    "userPage": {
+        "userFormCardTitle": "React-Formik-React-Bootstrap-NodeJs-Mysql",
+        "registerCardTitle": "Create new account to site",
+        "emailLabel": "Email",  
+        "emailPlaceholder": "Enter email",
+        "passwordLabel": "Password"
+    },
+    "forgotPasswordPage": {
+        "forgotPasswordCardTitle": "Welcome To Site",
+        "forgotPasswordInButton": "Send Link",
+        "backButton": "Back"
+    }
+}
