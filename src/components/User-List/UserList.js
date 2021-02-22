@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Table } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
 import { IoMdTrash } from "react-icons/io";
-import { useTranslation } from "../../pages/User-Page/node_modules/react-i18next";
+import { useTranslation } from "react-i18next";
 
 const UserList = (props) => {
   const { t: translation } = useTranslation("common");
