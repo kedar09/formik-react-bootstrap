@@ -105,8 +105,6 @@ const UserPage = () => {
       console.log(res);
       setLoading(false);
       const userList = res;
-      console.log(userList.length);
-      console.log(state.UserList && state.UserList.length > 0 ? true : false);
       setState({ ...state, userList });
     });
   }, [loading]);
@@ -289,7 +287,7 @@ const UserPage = () => {
           )}
         </Formik>
       </Card>
-      {state.UserList && state.UserList.length > 0 ? (
+      {state.userList && state.userList.length > 0 ? (
         <UserList state={state} setState={setState} deleteUser={deleteUser} />
       ) : null}
     </div>
