@@ -28,9 +28,9 @@ const UserPage = () => {
   const [loading, setLoading] = useState(true);
   const { t: translation } = useTranslation("common");
 
-  const handleChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (e) => {
+  //   setState({ ...state, [e.target.name]: e.target.value });
+  // };
 
   const refreshState = () => {
     setState({
@@ -105,6 +105,8 @@ const UserPage = () => {
       console.log(res);
       setLoading(false);
       const userList = res;
+      console.log(userList.length);
+      console.log(state.UserList && state.UserList.length > 0 ? true : false);
       setState({ ...state, userList });
     });
   }, [loading]);
@@ -179,9 +181,12 @@ const UserPage = () => {
                     name="name"
                     placeholder={translation("userPage.namePlaceholder")}
                     value={props.values.name}
-                    onChange={props.handleChange && handleChange}
+                    onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    isInvalid={props.errors.name && props.touched.name}
+                    isInvalid={
+                      (props.errors.name && props.touched.name) ||
+                      props.errors.name
+                    }
                   />
                   <Form.Control.Feedback type="invalid">
                     {props.errors.name}
@@ -199,9 +204,12 @@ const UserPage = () => {
                     name="address"
                     placeholder={translation("userPage.addressPlaceholder")}
                     value={props.values.address}
-                    onChange={props.handleChange && handleChange}
+                    onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    isInvalid={props.errors.address && props.touched.address}
+                    isInvalid={
+                      (props.errors.address && props.touched.address) ||
+                      props.errors.address
+                    }
                   />
                   <Form.Control.Feedback type="invalid">
                     {props.errors.address}
@@ -219,10 +227,11 @@ const UserPage = () => {
                     name="dateOfBirth"
                     placeholder="YYYY-MM-DD"
                     value={props.values.dateOfBirth}
-                    onChange={props.handleChange && handleChange}
+                    onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     isInvalid={
-                      props.errors.dateOfBirth && props.touched.dateOfBirth
+                      (props.errors.dateOfBirth && props.touched.dateOfBirth) ||
+                      props.errors.dateOfBirth
                     }
                   />
                   <Form.Control.Feedback type="invalid">
@@ -241,10 +250,12 @@ const UserPage = () => {
                     name="mobileNumber"
                     placeholder={translation("userPage.mobileNoPlaceholder")}
                     value={props.values.mobileNumber}
-                    onChange={props.handleChange && handleChange}
+                    onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     isInvalid={
-                      props.errors.mobileNumber && props.touched.mobileNumber
+                      (props.errors.mobileNumber &&
+                        props.touched.mobileNumber) ||
+                      props.errors.mobileNumber
                     }
                   />
                   <Form.Control.Feedback type="invalid">
@@ -278,7 +289,9 @@ const UserPage = () => {
           )}
         </Formik>
       </Card>
-      <UserList state={state} setState={setState} deleteUser={deleteUser} />
+      {state.UserList && state.UserList.length > 0 ? (
+        <UserList state={state} setState={setState} deleteUser={deleteUser} />
+      ) : null}
     </div>
   );
 };
