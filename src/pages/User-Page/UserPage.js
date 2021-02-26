@@ -58,8 +58,8 @@ const UserPage = () => {
         swal({
           icon: "success",
           button: false,
-          title: "Updated!",
-          text: res.data.message,
+          title: translation("userPage.userUpdatedSuccessfulTitle"),
+          text: translation("userPage.userUpdatedSuccessfulMessage"),
           timer: 2000,
         });
         refreshState();
@@ -67,8 +67,8 @@ const UserPage = () => {
         swal({
           icon: "error",
           button: false,
-          title: "Something Wrong!",
-          text: "Please try again later!",
+          title: translation("userPage.errorTitle"),
+          text: translation("userPage.errorMessage"),
           timer: 2000,
         });
       }
@@ -83,8 +83,8 @@ const UserPage = () => {
         swal({
           icon: "success",
           button: false,
-          title: "Deleted!",
-          text: res.data.message,
+          title: translation("userPage.userDeletedSuccessfulTitle"),
+          text: translation("userPage.userDeletedSuccessfulMessage"),
           timer: 2000,
         });
         refreshState();
@@ -92,8 +92,8 @@ const UserPage = () => {
         swal({
           icon: "error",
           button: false,
-          title: "Something Wrong!",
-          text: "Please try again later!",
+          title: translation("userPage.errorTitle"),
+          text: translation("userPage.errorMessage"),
           timer: 2000,
         });
       }
@@ -120,21 +120,21 @@ const UserPage = () => {
           initialValues={state}
           validationSchema={Yup.object().shape({
             name: Yup.string()
-              .min(1, "Name must be at least 3 characters")
-              .max(100, "Name max 100 characters")
-              .required("Name is required"),
+              .min(1, translation("userPage.nameMinValidation"))
+              .max(100, translation("userPage.nameMaxValidation"))
+              .required(translation("userPage.nameRequiredValidation")),
             address: Yup.string()
-              .min(1, "Address must be at least 3 characters")
-              .max(100, "Address max 100 characters")
-              .required("Address is required"),
-            dateOfBirth: Yup.date().required("Date Of Birth is required"),
+              .min(1, translation("userPage.addressMinValidation"))
+              .max(100, translation("userPage.addressMaxValidation"))
+              .required(translation("userPage.addressRequiredValidation")),
+            dateOfBirth: Yup.date().required(translation("userPage.dateOfBirthRequiredValidation")),
             mobileNumber: Yup.number()
-              .typeError("Doesn't seems like mobile number")
-              .positive("Mobile Number can't start with a minus")
-              .integer("Mobile Number can't include decimal number")
-              .min(6999999999, "Enter valid mobile number")
-              .max(9999999999, "Enter valid mobile number")
-              .required("Mobile Number is required"),
+              .typeError(translation("userPage.mobileNumberTypeError"))
+              .positive(translation("userPage.mobileNumberMinusError"))
+              .integer(translation("userPage.mobileNumberIntegerError"))
+              .min(6999999999, translation("userPage.mobileNumberMinValidation"))
+              .max(9999999999, translation("userPage.mobileNumberMaxValidation"))
+              .required(translation("userPage.mobileNumberRequiredValidation")),
           })}
           onSubmit={(values) => {
             let userData = {
@@ -150,8 +150,8 @@ const UserPage = () => {
                 swal({
                   icon: "success",
                   button: false,
-                  title: "Added!",
-                  text: res.data.message,
+                  title: translation("userPage.userAddedSuccessfulTitle"),
+                  text: translation("userPage.userAddedSuccessfulMessage"),
                   timer: 2000,
                 });
                 refreshState();
@@ -159,8 +159,8 @@ const UserPage = () => {
                 swal({
                   icon: "error",
                   button: false,
-                  title: "Something Wrong!",
-                  text: "Please try again later!",
+                  title: translation("userPage.errorTitle"),
+                  text: translation("userPage.errorMessage"),
                   timer: 2000,
                 });
               }
@@ -181,10 +181,7 @@ const UserPage = () => {
                     value={props.values.name}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    isInvalid={
-                      (props.errors.name && props.touched.name) ||
-                      props.errors.name
-                    }
+                    isInvalid={props.errors.name && props.touched.name}
                   />
                   <Form.Control.Feedback type="invalid">
                     {props.errors.name}
@@ -204,10 +201,7 @@ const UserPage = () => {
                     value={props.values.address}
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    isInvalid={
-                      (props.errors.address && props.touched.address) ||
-                      props.errors.address
-                    }
+                    isInvalid={props.errors.address && props.touched.address}
                   />
                   <Form.Control.Feedback type="invalid">
                     {props.errors.address}
@@ -228,8 +222,7 @@ const UserPage = () => {
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     isInvalid={
-                      (props.errors.dateOfBirth && props.touched.dateOfBirth) ||
-                      props.errors.dateOfBirth
+                      props.errors.dateOfBirth && props.touched.dateOfBirth
                     }
                   />
                   <Form.Control.Feedback type="invalid">
@@ -251,9 +244,7 @@ const UserPage = () => {
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     isInvalid={
-                      (props.errors.mobileNumber &&
-                        props.touched.mobileNumber) ||
-                      props.errors.mobileNumber
+                      props.errors.mobileNumber && props.touched.mobileNumber
                     }
                   />
                   <Form.Control.Feedback type="invalid">

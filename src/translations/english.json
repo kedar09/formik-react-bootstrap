@@ -11,8 +11,28 @@
         "passwordLabel": "Password",
         "addUserButton": "Add User",
         "updateUserButton": "Update User",
-        "cancelButton": "Cancel"
-        
+        "cancelButton": "Cancel",
+        "nameMinValidation": "Name must be at least 3 characters",
+        "nameMaxValidation": "Name max 100 characters",
+        "nameRequiredValidation": "Name is required",
+        "addressMinValidation": "Address must be at least 3 characters",
+        "addressMaxValidation": "Address max 100 characters",
+        "addressRequiredValidation": "Address is required",
+        "dateOfBirthRequiredValidation": "Date Of Birth is required",
+        "mobileNumberTypeError": "Doesn't seems like mobile number",
+        "mobileNumberMinusError": "Mobile Number can't start with a minus",
+        "mobileNumberIntegerError": "Mobile Number can't include decimal number",
+        "mobileNumberMinValidation": "Address must be at least 3 characters",
+        "mobileNumberMaxValidation": "Address max 100 characters",
+        "mobileNumberRequiredValidation": "Date Of Birth is required",
+        "userAddedSuccessfulMessage": "User added successfully!",
+        "userAddedSuccessfulTitle": "Added!",
+        "userDeletedSuccessfulMessage": "User deleted successfully!",
+        "userDeletedSuccessfulTitle": "Deleted!",
+        "userUpdatedSuccessfulMessage": "User updated successfully!",
+        "userUpdatedSuccessfulTitle": "Updated!",
+        "errorTitle": "Something Wrong!",
+        "errorMessage": "Please try again later!"
     },
     "userList": {
         "userListCardTitle": "User Details"
